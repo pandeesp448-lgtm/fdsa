@@ -62,7 +62,7 @@ const SurvivalSimulation = () => {
             </div>
             <Slider 
               value={[time]} 
-              onValueChange={(val: number[]) => setTime(val[0])} 
+              onValueChange={(val) => setTime(Array.isArray(val) ? val[0] : val)} 
               max={100} 
               step={1}
               className="py-4"
@@ -280,11 +280,11 @@ const CoxModelDemo = () => {
         <div className="space-y-8">
           <div>
             <div className="flex justify-between text-sm font-medium mb-2"><span>Age</span> <span>{age} yrs</span></div>
-            <Slider value={[age]} onValueChange={(v: number[]) => setAge(v[0])} min={20} max={90} step={1} />
+            <Slider value={[age]} onValueChange={(v) => setAge(Array.isArray(v) ? v[0] : v)} min={20} max={90} step={1} />
           </div>
           <div>
             <div className="flex justify-between text-sm font-medium mb-2"><span>Blood Pressure</span> <span>{bloodPressure} mmHg</span></div>
-            <Slider value={[bloodPressure]} onValueChange={(v: number[]) => setBloodPressure(v[0])} min={90} max={180} step={1} />
+            <Slider value={[bloodPressure]} onValueChange={(v) => setBloodPressure(Array.isArray(v) ? v[0] : v)} min={90} max={180} step={1} />
           </div>
           <div>
             <div className="flex justify-between text-sm font-medium mb-2"><span>Smoker (Yes/No)</span> <span>{smoker ? 'Yes' : 'No'}</span></div>
@@ -339,7 +339,7 @@ const ChurnSimulation = () => {
              <span>Months Subscribed</span>
              <span className="bg-amber-500/20 text-amber-600 dark:text-amber-400 px-3 py-1 rounded-full">{months} Months</span>
            </div>
-           <Slider value={[months]} onValueChange={(v: number[]) => setMonths(v[0])} min={1} max={maxMonths} step={1} className="py-2" />
+           <Slider value={[months]} onValueChange={(v) => setMonths(Array.isArray(v) ? v[0] : v)} min={1} max={maxMonths} step={1} className="py-2" />
         </div>
 
         <div className="space-y-3">
